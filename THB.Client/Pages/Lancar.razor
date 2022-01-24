@@ -1,0 +1,31 @@
+﻿@page "/lancar"
+
+<PageTitle>Dados</PageTitle>
+
+<h1>Lançar Dado</h1>
+
+<p role="status">Aperte o Dado correspondente: @currentValue</p>
+
+<button class="btn btn-primary" @onclick="LancarD6">D6</button>
+<button class="btn btn-primary" @onclick="LancarD10">D10</button>
+<button class="btn btn-primary" @onclick="LancarD20">D20</button>
+
+@code {
+    private int currentValue = 0;
+    private Random random = new Random();
+
+    private void LancarD6()
+    {
+        currentValue = random.Next(1,6);
+    }
+
+    private void LancarD10()
+    {
+        currentValue = random.Next(1,10);
+    }
+
+    private void LancarD20()
+    {
+        currentValue = random.Next(1,20);
+    }
+}

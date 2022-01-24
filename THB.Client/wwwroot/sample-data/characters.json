@@ -1,0 +1,27 @@
+﻿[
+  {
+    "name": "Tom",
+    "level": 5,
+    "function": "Knight"
+  },
+  {
+    "name": "Jack",
+    "level": 10,
+    "function": "Soldier"
+  },
+  {
+    "name": "Max",
+    "level": 8,
+    "function": "Ninja"
+  },
+  {
+    "name": "Adriana",
+    "level": 15,
+    "function": "Speller"
+  },
+  {
+    "name": "Cassandra",
+    "level": 2,
+    "function": "Wizard"
+  }
+]

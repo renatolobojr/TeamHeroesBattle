@@ -1,0 +1,54 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+
+<PageTitle>List of characters</PageTitle>
+
+<h1>List of characters</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (characters == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Level</th>
+                <th>Function</th>
+                <th>Mana</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var character in characters)
+            {
+                <tr>
+                    <td>@character.Name</td>
+                    <td>@character.Level</td>
+                    <td>@character.Function</td>
+                    <td>@character.Mana</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Heroes[]? characters;
+
+    protected override async Task OnInitializedAsync()
+    {
+        characters = await Http.GetFromJsonAsync<Heroes[]>("sample-data/characters.json");
+    }
+
+    public class Heroes
+    {
+        public string? Name { get; set; }
+        public int Level { get; set; }
+        public string? Function { get; set; }
+        public int Mana { get; set; } = 100;
+    }
+}
